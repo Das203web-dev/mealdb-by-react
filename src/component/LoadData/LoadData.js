@@ -6,11 +6,16 @@ import Cart from '../Cart/Cart';
 const LoadData = () => {
     const [cart, setcart] = useState([])
     const handleEvent = (food) => {
-        console.log('button clicked', food)
+        // console.log('button clicked', food)
+        const newCart = [...cart, food];
+        setcart(newCart)
     }
+    // useEffect(() => {
+
+    // }, [foods])
     const [foods, setFoods] = useState([])
     useEffect(() => {
-        fetch('https://www.themealdb.com/api/json/v1/1/search.php?f=a')
+        fetch('https://www.themealdb.com/api/json/v1/1/search.php?f=b')
             // fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
             .then(res => res.json())
             .then(data => setFoods(data.meals))
